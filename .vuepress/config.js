@@ -1,5 +1,6 @@
 module.exports = {
     title: 'Makerspace Journal',
+    theme: '@vuepress/theme-default',
     themeConfig: {
         nav: [
             { text: 'Home', link: '/' },
