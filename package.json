@@ -4,7 +4,8 @@
   "description": "Documentation of the Makerspace journey of exploration",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "serve": "vuepress dev",
+    "build": "vuepress build"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/usgs-makerspace/journal-vuepress/issues"
   },
-  "homepage": "https://github.com/usgs-makerspace/journal-vuepress#readme"
+  "homepage": "https://github.com/usgs-makerspace/journal-vuepress#readme",
+  "devDependencies": {
+    "vuepress": "^1.2.0"
+  }
 }
