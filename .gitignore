@@ -1,6 +1,8 @@
 _Store
 node_modules
 /dist
+.vuepress/dist/
+
 
 # local env files
 .env.local
