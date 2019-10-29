@@ -1,4 +1,4 @@
-## Add Font Awesome Icons
+# Add Font Awesome Icons
 <a id="add_icons"></a>
 So you want some cool icons, but do not have time to make them yourself. This is where Font Awesome comes in. Font Awesome
 as a bunch of no free icons and also provides a Vue plugin to use them as mini Vue components.
