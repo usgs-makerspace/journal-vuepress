@@ -17,3 +17,6 @@ footer: footer here
 
 # Makerspace Journal
 An informal documentation of the Makerspace journey of discovery.
+
+## Recent Additions
+<RecentArticles/>
