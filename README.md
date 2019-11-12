@@ -68,7 +68,7 @@ Research Task Check List
 ```
 #### Inserting images
 The big downside to using markdown for a journal is that adding images require more than cutting and pasting - boo.
-To  get an image into the Journal first add the image to the project in the folder called 'markDownImages'.
+To  get an image into the Journal first add the image to the project in the folder called 'assets/img'.
 Then add a link to the image you want displayed using the following pattern.
 ```
 // A general example for adding an image link.
