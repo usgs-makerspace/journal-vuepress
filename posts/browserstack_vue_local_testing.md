@@ -28,7 +28,13 @@ automatically populate the needed 'curl' command with your information. If you a
 Now you are almost ready to start testing. If you head back to the Browserstack main page you should see a list of 
 browsers that you can run your local application on. 
 
-Browserstack allows you to test by directly connecting to your 'localhost'. UNFORTUNATLY, this does not seem to work on the 
+Another option at this point is downloading the Browserstack plugin in for Chrome. This works well if you can or are using Chrome.
+It is not so great if you are using other browsers, since there do not seem to be any other plugin options available.
+
+Whether you choose to use the Chrome based plugin or go directly to the Browserstack page, you are ready to 
+start doing some testing. 
+
+Browserstack allows you to test by directly connecting to your 'localhost'. UNFORTUNATELY, this does not seem to work on the 
 DOI network. So rather that dig deeper into the headache inducing topic, I'll skip to something that actually mostly 
 works. 
 
@@ -40,8 +46,8 @@ by running  . . .
 npm run build-test or whatever build type you choose, like npm run build-beta
 
 please note - that Browserstack will not be able to call on interal resources, so on a project like WBEEP
-using the 'test' build will cause requests to sources interal to the USGS for the HRUs so these will not
-show when the map is rendered.
+using the 'test' build will create URL request calls to sources internal to the USGS for items such as 
+the Hydrologic Response Units (HRUs), because of this, the  will NOT show when the map is rendered.
 ``` 
 Now that you have a new copy of your application all ready to run, all you need to do is tell Browserstack where 
 to find it. Here is the cheat sheet version of those steps.
@@ -54,7 +60,7 @@ to find it. Here is the cheat sheet version of those steps.
 ![Browserstack options](../assets/img/browserstack_options.png)
 
 Summary, this should be enough to test a Vue application on the multitude of browsers offered by Browserstack.
-This is not a perfect solution by any means, as we are hampered by our organizations broad security polices,
+This is not a perfect solution by any means, as we are hampered by our organization's broad security polices,
  but it is the best we have at the moment. 
  
  Just remember, to see any changes, you will need to 'build' not 'serve'
