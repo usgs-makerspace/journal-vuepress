@@ -188,3 +188,18 @@ console.log('node-env, this is the curent environment: ', process.env.NODE_ENV)
 console.log('A list of all the current environment variables: ',  process.env)
 
 ```
+
+## Environment Variable Gotchas
+(kinda) Reserved Words
+
+Vue has a couple of built in build modes that do special things one of which is 'test'. In Vue, the mode 'test' is 
+used to run Unit Tests with greater efficiency. As such, it seems that we should avoid naming our environment
+variable files '.env.test'. 
+
+This may be a tempting choice of names, especially if one of your deployment
+tiers is named 'test'. And, if you try, as I did, you will find out painfully that Vue has no problem with
+you using 'test' in your environment variable names, but some internet browsers will take issue, mainly Internet 
+Explorer and Edge. 
+
+Edge and Internet Explorer will choke on the page load giving a totally unhelpful error message like 
+"script 0: unexpected ':'" (Internet Explorer) or "error: expected, script or identifier" (Edge).
