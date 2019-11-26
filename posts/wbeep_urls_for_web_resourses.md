@@ -1,19 +1,21 @@
 # WBEEP URLs for Application Tiers and Map Resources
 
-For the WBEEP application here is the breakdown as of 11/7/2019.
+For the WBEEP application here is the breakdown as of 11/26/2019.
 
 ## WBEEP Deployment Tiers and Related URLs
-1. 'test' - http://wbeep-test-website.s3-website-us-west-2.amazonaws.com/
-2. 'qa' - http://wbeep-qa-website.s3-website-us-west-2.amazonaws.com/
-3. 'beta'- http://wbeep-beta-website.s3-website-us-west-2.amazonaws.com/
-3. 'beta with CloudFront' - https://d38anyyapxci3p.cloudfront.net/
-4. 'prod' - http://wbeep-prod-website.s3-website-us-west-2.amazonaws.com/
-4. 'prod with CloudFront' - http: https://d1drhovb0vmgar.cloudfront.net/
+1. 'test' - http://wbeep-test-website.s3-website-us-west-2.amazonaws.com/estimated-availability
+2. 'qa' - http://wbeep-qa-website.s3-website-us-west-2.amazonaws.com/estimated-availability
+3.1 'beta'- http://wbeep-beta-website.s3-website-us-west-2.amazonaws.com/estimated-availability
+3.2 'beta with CloudFront' - https://d38anyyapxci3p.cloudfront.net/estimated-availability
+3.3 'beta - user friendly'- https://labs-beta.waterdata.usgs.gov/estimated-availability
+4.1 'prod' - http://wbeep-prod-website.s3-website-us-west-2.amazonaws.com/estimated-availability
+4.2 'prod with CloudFront' - http: https://d1drhovb0vmgar.cloudfront.net/estimated-availability
+4.3 'prod - user friendly' - https://labs.waterdata.usgs.gov/estimated-availability
 
+## WBEEP external resources 
 The water availability map for the Water Budget Estimation and Evaluation Project requires numerous web resources in order 
 to display all the information we want to show.
 
-## WBEEP external resources 
 Currently the application requires six data calls to external resources in order to render all the details of the 
 water availability map. These data calls can be grouped into two sets: 1) calls to our Amazon Web Services (AWS)
 Simple Storage Solutions (S3) bucket located at https://maptiles-prod-website.s3-us-west-2.amazonaws.com and 2) calls made to 
@@ -45,9 +47,6 @@ Calls made to tier specific S3 buckets.
     on the beta tier (secure) - https://d38anyyapxci3p.cloudfront.net/date/date.txt
     
     on the prod tier (secure) - https://d1drhovb0vmgar.cloudfront.net/date/date.txt
-
- 
-
 
 
 ## WBEEP Build Mode Cheat Sheet
