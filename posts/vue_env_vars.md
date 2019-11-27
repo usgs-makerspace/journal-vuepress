@@ -203,3 +203,50 @@ Explorer and Edge.
 
 Edge and Internet Explorer will choke on the page load giving a totally unhelpful error message like 
 "script 0: unexpected ':'" (Internet Explorer) or "error: expected, script or identifier" (Edge).
+
+## Vue, NODE_ENV, Build Modes, and Explicitly Setting the NODE_ENV in package.json
+Here is another issue that may present some confusion. Vue has three default ways of building an application
+serve, build, and test, and Vue has three build modes (as mentioned above) 'development', 'production', and 'test'. All these
+options, combined with the fact that you can change any of the build mode, by adding more '.env' files of different names
+is probably confusing enough, but here is one thing for which to watch. 
+
+The way Vue compresses the JavaScript bundle is controlled by the value of a Vue global variable called NODE_ENV. If the
+NODE_ENV has the value of 'production' Vue will compress the JavaScript bundle as much as possible. If the value is 'development',
+it will create a much larger bundle which is optimized to use for local development. 
+
+Normally when we run a command like 'npm run build', Vue will actually run the command 'vue-cli-service build' and will see a NODE_ENV with the value of 'production' and
+then compress the bundle. HOWEVER, this 'default' behavior in Vue is NOT related to the 'build' part of the
+command. So, even though 99 out of 100 times when we run 'npm run build' we want a compressed bundle, what controls
+the creation of that bundle is not the 'build' part, it is the '-- mode production' part of the command, which is hidden from
+us because it is the 'default' mode of the build command. So, in effect Vue is running the command vue-cli-service build --mode production'.
+ 
+But, if we use a custom mode like '.env.staging' we will change Vue's 
+'default' behavior and Vue will run a command that is in effect 'vue-cli-service build --mode staging'. Now, to Vue if the 
+'mode' is anything other than 'production' or 'test', it will assume you want to use 'development' and will
+change the NODE_ENV variable value to 'development' which when you build the application will result in a 
+JavaScript bundle that is way bigger than needed for deployment.
+
+To overcome this gotcha, we can explicitly tell Vue what the NODE_ENV variable should be prior to Vue running the
+build command. This is done in the 'package.json'.
+```
+// Example 1
+// package.json - using custom modes with NODE_ENV NOT defined 
+// 'npm run build prod' will result in a NODE_ENV of 'development' and a large JS bundle
+. . .
+  "scripts": {
+    "serve": "vue-cli-service serve --mode test_tier",
+    "build-prod": "vue-cli-service build --mode staging",
+    "lint": "vue-cli-service lint"
+  },
+ . . .
+// Example 2
+// package.json - using custom modes with NODE_ENV defined 
+// 'npm run build prod' will result in a NODE_ENV of 'production' and a smaller JS bundle
+. . .
+  "scripts": {
+    "serve": "NODE_ENV=development vue-cli-service serve --mode test_tier",
+    "build-prod": "NODE_ENV=production vue-cli-service build --mode staging",
+    "lint": "vue-cli-service lint"
+  },
+ . . .
+```
